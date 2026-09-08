@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#07131b" />
+  <meta name="description" content="Hydra Team — Minecraft Bedrock creators building add-ons, 3D models, textures and gameplay experiences." />
+  <title>Hydra Team</title>
+  <link rel="icon" type="image/png" href="assets/images/favicon.png" />
+  <link rel="apple-touch-icon" href="assets/images/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=studio9" />
+  <script defer src="script.js?v=studio9"></script>
+</head>
+<body>
+  <canvas class="ambient-canvas" data-particle-field aria-hidden="true"></canvas>
+  <div class="world-backdrop" aria-hidden="true"></div>
+  <div class="scroll-progress" aria-hidden="true"><span></span></div>
+
+  <header class="site-header" data-header>
+    <a class="brand" href="#top" aria-label="Hydra Team home">
+      <img src="assets/images/hydra-mark.png" alt="" class="brand-mark theme-logo" />
+      <span class="brand-name">HYDRA TEAM</span>
+    </a>
+
+    <nav class="main-nav" id="main-nav" data-menu>
+      <a href="#about">About us</a>
+      <a href="#team">The team</a>
+      <a href="#projects">Our work</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="header-actions">
+      <a class="header-cta" href="#projects">Explore our work <span>↗</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" data-menu-toggle>
+        <span></span><span></span><span class="sr-only">Open menu</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero section-shell">
+      <div class="hero-center">
+        <div class="hero-copy reveal reveal-delay-1">
+          <p class="eyebrow"><span class="status-dot"></span> MINECRAFT CREATIVE TEAM</p>
+          <h1>We turn ideas into<br /><span>Minecraft experiences.</span></h1>
+          <p class="hero-intro">Add-ons, models, art and gameplay systems made by a small team that enjoys turning ideas into polished Minecraft experiences.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#projects">Explore our work <span>↗</span></a>
+            <a class="text-link" href="#team">Meet the team <span>↓</span></a>
+          </div>
+        </div>
+        <div class="hero-art reveal reveal-delay-2" aria-hidden="true">
+          <div class="hero-render-stage">
+            <div class="hero-vortex">
+              <span class="vortex-glint g1"></span>
+              <span class="vortex-glint g2"></span>
+              <span class="vortex-glint g3"></span>
+              <span class="vortex-glint g4"></span>
+              <span class="vortex-spark" style="--a:-0.7deg;--d:363px;--delay:2.06s;--dur:2.98s;--size:7px;--c:#7dd9ec"></span>
+              <span class="vortex-spark" style="--a:16.5deg;--d:370px;--delay:0.46s;--dur:3.0s;--size:7px;--c:#7dd9ec"></span>
+              <span class="vortex-spark" style="--a:34.5deg;--d:267px;--delay:0.23s;--dur:2.5s;--size:5px;--c:#b57cff"></span>
+              <span class="vortex-spark" style="--a:49.6deg;--d:397px;--delay:1.52s;--dur:2.8s;--size:7px;--c:#b57cff"></span>
+              <span class="vortex-spark" style="--a:72.0deg;--d:387px;--delay:1.77s;--dur:2.85s;--size:8px;--c:#eaffff"></span>
+              <span class="vortex-spark" style="--a:75.0deg;--d:355px;--delay:0.15s;--dur:2.24s;--size:6px;--c:#ffb066"></span>
+              <span class="vortex-spark" style="--a:99.6deg;--d:338px;--delay:0.78s;--dur:2.79s;--size:6px;--c:#7dd9ec"></span>
+              <span class="vortex-spark" style="--a:114.8deg;--d:383px;--delay:0.71s;--dur:2.2s;--size:5px;--c:#7dd9ec"></span>
+              <span class="vortex-spark" style="--a:130.3deg;--d:291px;--delay:0.98s;--dur:2.75s;--size:5px;--c:#b57cff"></span>
+              <span class="vortex-spark" style="--a:150.2deg;--d:300px;--delay:1.82s;--dur:2.71s;--size:5px;--c:#b57cff"></span>
+              <span class="vortex-spark" style="--a:157.6deg;--d:247px;--delay:0.96s;--dur:3.05s;--size:7px;--c:#eaffff"></span>
+              <span class="vortex-spark" style="--a:173.9deg;--d:224px;--delay:2.03s;--dur:2.2s;--size:6px;--c:#ffb066"></span>
+              <span class="vortex-spark" style="--a:202.3deg;--d:233px;--delay:1.13s;--dur:3.18s;--size:7px;--c:#7dd9ec"></span>
+              <span class="vortex-spark" style="--a:211.6deg;--d:364px;--delay:1.51s;--dur:2.98s;--size:7px;--c:#7dd9ec"></span>
+              <span class="vortex-spark" style="--a:226.8deg;--d:299px;--delay:0.8s;--dur:3.16s;--size:5px;--c:#b57cff"></span>
+              <span class="vortex-spark" style="--a:240.3deg;--d:400px;--delay:0.24s;--dur:2.26s;--size:7px;--c:#b57cff"></span>
+              <span class="vortex-spark" style="--a:257.3deg;--d:363px;--delay:0.45s;--dur:2.71s;--size:9px;--c:#eaffff"></span>
+              <span class="vortex-spark" style="--a:282.0deg;--d:327px;--delay:1.54s;--dur:2.32s;--size:7px;--c:#ffb066"></span>
+              <span class="vortex-spark" style="--a:301.4deg;--d:220px;--delay:0.65s;--dur:3.17s;--size:8px;--c:#7dd9ec"></span>
+              <span class="vortex-spark" style="--a:308.2deg;--d:225px;--delay:0.51s;--dur:2.59s;--size:8px;--c:#7dd9ec"></span>
+              <span class="vortex-spark" style="--a:329.3deg;--d:245px;--delay:0.1s;--dur:2.35s;--size:7px;--c:#b57cff"></span>
+              <span class="vortex-spark" style="--a:340.3deg;--d:376px;--delay:0.79s;--dur:2.5s;--size:5px;--c:#b57cff"></span>
+            </div>
+            <img class="hero-character-art" src="assets/images/hero/hydra-characters.png" alt="" />
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-stats reveal reveal-delay-3" data-stats aria-label="Hydra Team highlights">
+        <div class="stat-item"><strong data-stat="curseforgeDownloads" data-count="951700" data-format="compact" data-suffix="+">0</strong><span>CurseForge downloads</span></div>
+        <div class="stat-item"><strong data-stat="curseforgeProjects" data-count="23" data-format="integer" data-suffix="+">0</strong><span>CurseForge projects</span></div>
+        <div class="stat-item"><strong data-stat="mcmodelsSales" data-count="170" data-format="integer" data-suffix="+">0</strong><span>MCModels sales</span></div>
+        <div class="stat-item"><strong data-stat="mcmodelsProducts" data-count="15" data-format="integer">0</strong><span>MCModels products</span></div>
+      </div>
+    </section>
+
+    <section class="about section-shell" id="about">
+      <div class="section-heading reveal">
+        
+        <h2>Minecraft creators with<br /><span class="accent-word">different specialties.</span></h2>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-media reveal">
+          <div class="about-visual-stage hydra-logo-stage">
+            <div class="hydra-logo-stage-glow hydra-logo-stage-glow-a" aria-hidden="true"></div>
+            <div class="hydra-logo-stage-glow hydra-logo-stage-glow-b" aria-hidden="true"></div>
+            <img class="hydra-logo-showcase" src="assets/images/about/hydra-logo-crystal.webp" alt="Hydra logo" loading="lazy" />
+          </div>
+        </div>
+        <div class="about-copy reveal reveal-delay-1">
+          <p class="lead">Hydra Team is a collaborative Minecraft team focused on Bedrock content, visual identity and gameplay systems. We are a team focused on MC content with a high quality artwork and a advanced script skills.</p>
+          <p>Our work ranges from survival expansions and equipment systems to custom models, textures and premium packs. We publish community releases through CurseForge, MCPEDL and MCMODELS.</p>
+          <div class="about-links">
+            <a href="https://www.curseforge.com/members/hydrateam/projects" target="_blank" rel="noreferrer">CurseForge ↗</a>
+            <a href="https://mcmodels.net/vendors/232/hydra-team" target="_blank" rel="noreferrer">MCModels ↗</a>
+            <a href="https://mcpedl.com/user/hydra-team/" target="_blank" rel="noreferrer">MCPEDL ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="portfolio section-shell" id="team">
+      <div class="section-heading split-heading reveal">
+        <div>
+          
+          <h2>Different skills.<br />One Hydra.</h2>
+        </div>
+        <p>Official members of Hydra.</p>
+      </div>
+
+      <div class="people-list">
+        <a class="person-row reveal" href="https://systemtv590.github.io/" target="_blank" rel="noreferrer">
+          <span class="person-index">01</span>
+          <div class="person-avatar"><img src="https://media.forgecdn.net/avatars/1728/451/639099832649565837.png" referrerpolicy="no-referrer" alt="SystemTV profile icon" loading="lazy" /></div>
+          <div class="person-info"><h3>SystemTV</h3><p>Addon Maker - Scripting</p></div>
+          <span class="person-arrow">↗</span>
+        </a>
+        <a class="person-row reveal" href="https://alaniz991.github.io/AlanizMc/" target="_blank" rel="noreferrer">
+          <span class="person-index">02</span>
+          <div class="person-avatar"><img src="https://media.forgecdn.net/avatars/1298/646/638844032646014505.png" referrerpolicy="no-referrer" alt="AlanizMc profile icon" loading="lazy" /></div>
+          <div class="person-info"><h3>Alaniz</h3><p>3D modeling</p></div>
+          <span class="person-arrow">↗</span>
+        </a>
+        <a class="person-row reveal" href="https://www.curseforge.com/members/VulakDeRex/projects" target="_blank" rel="noreferrer">
+          <span class="person-index">03</span>
+          <div class="person-avatar"><img src="https://media.forgecdn.net/avatars/1793/519/639136193052939327.png" referrerpolicy="no-referrer" alt="Vulak / Rex profile icon" loading="lazy" /></div>
+          <div class="person-info"><h3>Vulak / Rex</h3><p>3D modeling</p></div>
+          <span class="person-arrow">↗</span>
+        </a>
+        <a class="person-row reveal" href="https://alancape3313.github.io/" target="_blank" rel="noreferrer">
+          <span class="person-index">04</span>
+          <div class="person-avatar"><img src="assets/images/members/alan-cape.png" alt="Alan Cape profile icon" loading="lazy" /></div>
+          <div class="person-info"><h3>Alan Cape</h3><p>Addon Maker - Scripting</p></div>
+          <span class="person-arrow">↗</span>
+        </a>
+        <a class="person-row reveal" href="https://salmulesportfolio.vercel.app/" target="_blank" rel="noreferrer">
+          <span class="person-index">05</span>
+          <div class="person-avatar"><img src="assets/images/members/salmule.png" alt="Salmule profile icon" loading="lazy" /></div>
+          <div class="person-info"><h3>Salmule</h3><p>Mob animations</p></div>
+          <span class="person-arrow">↗</span>
+        </a>
+        <a class="person-row reveal" href="https://endxenoc.github.io/portfolio/" target="_blank" rel="noreferrer">
+          <span class="person-index">06</span>
+          <div class="person-avatar"><img src="assets/images/members/xenoc.png" alt="Xenoc profile icon" loading="lazy" /></div>
+          <div class="person-info"><h3>Xenoc / EndXenoc</h3><p>Code · Scripting</p></div>
+          <span class="person-arrow">↗</span>
+        </a>
+        <a class="person-row reveal" href="https://www.curseforge.com/members/hamleth_arena/projects" target="_blank" rel="noreferrer">
+          <span class="person-index">07</span>
+          <div class="person-avatar"><img src="https://media.forgecdn.net/avatars/1793/524/639136197914109918.png" referrerpolicy="no-referrer" alt="Hamleth / Arena profile icon" loading="lazy" /></div>
+          <div class="person-info"><h3>Hamleth / Arena</h3><p>Addon Maker - PixelArt</p></div>
+          <span class="person-arrow">↗</span>
+        </a>
+        <a class="person-row reveal" href="https://ko-fi.com/angelosoyt" target="_blank" rel="noreferrer">
+          <span class="person-index">08</span>
+          <div class="person-avatar"><img src="https://storage.ko-fi.com/cdn/useruploads/e57952f8-eb58-4243-adfb-b87526e59ae0_1120a349-3f1b-453d-80d4-60f225b7cd01.png" referrerpolicy="no-referrer" alt="AngelosoYT profile image" loading="lazy" /></div>
+          <div class="person-info"><h3>AngelosoYT</h3><p>Addon Maker</p></div>
+          <span class="person-arrow">↗</span>
+        </a>
+        <a class="person-row reveal" href="https://meluch0-0.github.io/Meluch.github.io/" target="_blank" rel="noreferrer">
+          <span class="person-index">09</span>
+          <div class="person-avatar"><img src="assets/images/members/meluch.png" alt="Meluch profile icon" loading="lazy" /></div>
+          <div class="person-info"><h3>Meluch</h3><p>Artist · 3D models</p></div>
+          <span class="person-arrow">↗</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="projects section-shell" id="projects">
+      <div class="section-heading split-heading projects-heading reveal">
+        <div>
+          <h2>Some of our<br /><span class="accent-word">favorite releases.</span></h2>
+        </div>
+      </div>
+
+      <div class="featured-project reveal">
+        <a class="featured-image" href="https://www.curseforge.com/minecraft-bedrock/addons/archaism-talismans-v2" target="_blank" rel="noreferrer">
+          <img src="assets/assets/images/projects/archaism-talismans-featured.png" alt="Archaism Talismans" loading="lazy" />
+          <span class="project-chip">100K+ downloads</span>
+        </a>
+        <div class="featured-copy">
+          <p class="project-index">FEATURED · ADD-ON</p>
+          <h3>Archaism Talismans</h3>
+          <p>Survival-focused add-on for Minecraft Bedrock with talismans, equipment, progression and new collectible content for your world.</p>
+          <a class="text-link" href="https://www.curseforge.com/minecraft-bedrock/addons/archaism-talismans-v2" target="_blank" rel="noreferrer">View project <span>↗</span></a>
+        </div>
+      </div>
+
+      <div class="project-grid-small">
+        <article class="project-card reveal">
+          <a class="project-thumb" href="https://www.curseforge.com/minecraft-bedrock/addons/hydra-expansion" target="_blank" rel="noreferrer"><img src="assets/assets/images/projects/hydra-expansion-cover.png" alt="Hydra Expansion" loading="lazy" /></a>
+          <div class="project-card-meta"><div><h3>Hydra Expansion</h3><p>Add-on pack · 139K+</p></div><a href="https://www.curseforge.com/minecraft-bedrock/addons/hydra-expansion" target="_blank" rel="noreferrer">↗</a></div>
+        </article>
+        <article class="project-card reveal reveal-delay-1">
+          <a class="project-thumb" href="https://www.curseforge.com/minecraft-bedrock/addons/archaism-trinkets-2" target="_blank" rel="noreferrer"><img src="assets/assets/images/projects/archaism-trinkets-cover.png" alt="Archaism Trinkets V1.4.1" loading="lazy" /></a>
+          <div class="project-card-meta"><div><h3>Archaism Trinkets V1.4.1</h3><p>Survival add-on · 305K+</p></div><a href="https://www.curseforge.com/minecraft-bedrock/addons/archaism-trinkets-2" target="_blank" rel="noreferrer">↗</a></div>
+        </article>
+        <article class="project-card reveal reveal-delay-2">
+          <a class="project-thumb" href="https://www.curseforge.com/minecraft-bedrock/addons/ruby-add-on" target="_blank" rel="noreferrer"><img src="assets/assets/images/projects/ores-plus-official-cover.png" alt="Ores Plus Official" loading="lazy" /></a>
+          <div class="project-card-meta"><div><h3>Ores Plus Official</h3><p>Survival add-on</p></div><a href="https://www.curseforge.com/minecraft-bedrock/addons/ruby-add-on" target="_blank" rel="noreferrer">↗</a></div>
+        </article>
+        <article class="project-card reveal reveal-delay-3">
+          <a class="project-thumb" href="https://www.curseforge.com/minecraft-bedrock/texture-packs/hydra-team-reforged-armors" target="_blank" rel="noreferrer"><img src="assets/assets/images/projects/reforged-armors-cover.png" alt="Reforged Armors v1.5" loading="lazy" /></a>
+          <div class="project-card-meta"><div><h3>Reforged Armors v1.5</h3><p>Texture pack</p></div><a href="https://www.curseforge.com/minecraft-bedrock/texture-packs/hydra-team-reforged-armors" target="_blank" rel="noreferrer">↗</a></div>
+        </article>
+      </div>
+
+      <div class="projects-footer reveal">
+        <a class="button button-ghost" href="https://www.curseforge.com/members/hydrateam/projects" target="_blank" rel="noreferrer">See every CurseForge project ↗</a>
+      </div>
+
+      <div class="marketplace-block">
+        <div class="marketplace-heading reveal">
+          <div><h3>Hydra on MCModels.</h3></div>
+          <a class="text-link" href="https://mcmodels.net/vendors/232/hydra-team" target="_blank" rel="noreferrer">Visit the store <span>↗</span></a>
+        </div>
+        <div class="market-grid">
+          <a class="market-card reveal" href="https://mcmodels.net/products/14201/void-colossus-pack" target="_blank" rel="noreferrer"><div class="market-image"><img src="https://api.mcmodels.net/storage/product-images/14201/01KNV03D8C6CBD8ATB7FT72F4T.png" alt="Void Colossus Pack" loading="lazy" /></div><div class="market-meta"><div><strong>Void Colossus</strong><span>Weapons & armor</span></div><em>↗</em></div></a>
+          <a class="market-card reveal reveal-delay-1" href="https://mcmodels.net/products/14202/heartflame-pack" target="_blank" rel="noreferrer"><div class="market-image"><img src="https://api.mcmodels.net/storage/product-images/14202/01KPCVEM1HFMES4713T3PC1CMG.png" alt="HeartFlame Pack" loading="lazy" /></div><div class="market-meta"><div><strong>HeartFlame</strong><span>Weapons & armor</span></div><em>↗</em></div></a>
+          <a class="market-card reveal reveal-delay-2" href="https://mcmodels.net/products/16418/demon-gaze-equipment" target="_blank" rel="noreferrer"><div class="market-image"><img src="https://api.mcmodels.net/storage/product-images/16418/01KRTCM28TZCYNWKNGEJCR5C3E.png" alt="Demon Gaze Equipment" loading="lazy" /></div><div class="market-meta"><div><strong>Demon Gaze</strong><span>Equipment set</span></div><em>↗</em></div></a>
+          <a class="market-card reveal" href="https://mcmodels.net/products/16673/dark-knight-equipment" target="_blank" rel="noreferrer"><div class="market-image"><img src="https://api.mcmodels.net/storage/product-images/16673/01KVD01X12K59RNS00MQTR10YQ.png" alt="Dark Knight Equipment" loading="lazy" /></div><div class="market-meta"><div><strong>Dark Knight Equipment</strong><span>Equipment · Weapons</span></div><em>↗</em></div></a>
+          <a class="market-card reveal reveal-delay-1" href="https://mcmodels.net/products/14100/drako-knight" target="_blank" rel="noreferrer"><div class="market-image"><img src="https://api.mcmodels.net/storage/product-images/14100/01JV4G0NNBTAFRDXEAP4TBEZGC.png" alt="Drako Knight" loading="lazy" /></div><div class="market-meta"><div><strong>Drako Knight</strong><span>Boss · VFX · Mobs</span></div><em>↗</em></div></a>
+          <a class="market-card reveal reveal-delay-2" href="https://mcmodels.net/products/15476/arcane-gem-pack" target="_blank" rel="noreferrer"><div class="market-image"><img src="https://api.mcmodels.net/storage/product-images/15476/01KC3GDX4BMNZ3KA5R8KZSKDPN.png" alt="Arcane Gem Pack" loading="lazy" /></div><div class="market-meta"><div><strong>Arcane Gem Pack</strong><span>Fantasy · Armor · Weapons</span></div><em>↗</em></div></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact section-shell" id="contact">
+      <div class="contact-shell reveal">
+        <div class="contact-grid">
+          <div class="contact-info">
+            
+            <h2>Follow the Hydra.</h2>
+            <p class="contact-lead">Downloads, showcases, support, model packs and community updates — everything in one place.</p>
+
+            <div class="contact-links">
+              <a class="contact-link social-youtube reveal" href="https://www.youtube.com/@TheOverHydra" target="_blank" rel="noreferrer">
+                <span class="social-icon social-icon-pixel" aria-hidden="true"><img src="assets/images/social/youtube.png" alt="" loading="lazy" /></span>
+                <span class="contact-link-text"><strong>YouTube</strong><small>Showcases & videos</small></span><span class="social-arrow">↗</span>
+              </a>
+              <a class="contact-link social-discord reveal" href="https://discord.gg/8GjJgaD9pn" target="_blank" rel="noreferrer">
+                <span class="social-icon social-icon-pixel" aria-hidden="true"><img src="assets/images/social/discord.png" alt="" loading="lazy" /></span>
+                <span class="contact-link-text"><strong>Discord</strong><small>Community & support</small></span><span class="social-arrow">↗</span>
+              </a>
+              <a class="contact-link social-curseforge reveal" href="https://www.curseforge.com/members/hydrateam/projects" target="_blank" rel="noreferrer">
+                <span class="social-icon social-icon-pixel" aria-hidden="true"><img src="assets/images/social/curseforge.png" alt="" loading="lazy" /></span>
+                <span class="contact-link-text"><strong>CurseForge</strong><small>Projects & downloads</small></span><span class="social-arrow">↗</span>
+              </a>
+              <a class="contact-link social-mcpedl reveal" href="https://mcpedl.com/user/hydra-team/" target="_blank" rel="noreferrer">
+                <span class="social-icon social-icon-pixel" aria-hidden="true"><img src="assets/images/social/mcpedl.png" alt="" loading="lazy" /></span>
+                <span class="contact-link-text"><strong>MCPEDL</strong><small>Bedrock releases</small></span><span class="social-arrow">↗</span>
+              </a>
+              <a class="contact-link social-mcmodels reveal" href="https://mcmodels.net/vendors/232/hydra-team" target="_blank" rel="noreferrer">
+                <span class="social-icon social-icon-pixel" aria-hidden="true"><img src="assets/images/social/mcmodels-logo.png" alt="" loading="lazy" /></span>
+                <span class="contact-link-text"><strong>MCModels</strong><small>Premium model packs</small></span><span class="social-arrow">↗</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="contact-model reveal reveal-delay-1">
+            <img src="assets/images/showcase/police-car.png" alt="Police car add-on render" loading="lazy" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="closing section-shell">
+      <div class="closing-inner reveal">
+        <img src="assets/images/hydra-mark.png" alt="" class="theme-logo" />
+        <p class="eyebrow">HYDRA TEAM</p>
+        <h2>Built for Bedrock.<br /><span>Made together.</span></h2>
+        <a class="button button-primary" href="https://discord.gg/8GjJgaD9pn" target="_blank" rel="noreferrer">Join the community ↗</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer section-shell">
+    <div class="footer-left"><img src="assets/images/hydra-mark.png" alt="" class="theme-logo" /><span>© <span data-year></span> HYDRA TEAM</span></div>
+    <div class="footer-right"><a href="#top">Back to top ↑</a></div>
+  </footer>
+</body>
+</html>
