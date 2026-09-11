@@ -730,3 +730,34 @@ main,.site-footer{z-index:3}
   .hydra-logo-stage{padding:0;}
   .hydra-logo-showcase{width:104%;}
 }
+
+
+/* ===== Team portfolios heading: cleaner + mobile safe ===== */
+.portfolio .section-heading h2{
+  max-width:760px;
+}
+.portfolio .split-heading > p{
+  align-self:end;
+}
+@media (max-width:700px){
+  .portfolio .split-heading{
+    grid-template-columns:1fr;
+    gap:14px;
+    align-items:start;
+  }
+  .portfolio .section-heading h2{
+    font-size:clamp(38px,11vw,54px);
+    line-height:1;
+    max-width:100%;
+  }
+  .portfolio .section-heading h2::after{
+    margin-top:18px;
+  }
+  .portfolio .split-heading > p{
+    max-width:34ch;
+    margin:0;
+    font-size:13px;
+    line-height:1.55;
+    font-weight:500;
+  }
+}
