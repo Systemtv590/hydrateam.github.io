@@ -46,4 +46,12 @@ The updater reads the public Hydra Team pages on CurseForge and MCModels and ref
 
 Important: these are public-page scrapes rather than official authenticated APIs, so either site can change its HTML or block automated requests. If that happens, the previous values remain usable and can still be edited manually in data/stats.json.
 
-Hero visual: assets/images/hero-visual.png (provided render)
+HERO (v10 - night castle)
+-------------------------
+- Background render: assets/images/hero/hero-castle.webp  (replace this file to change it)
+- Character group:    assets/images/hero/hydra-characters.webp
+- Falling pixel petals + mouse parallax live at the bottom of script.js
+  (edit PALETTE and LAYERS there: colours, sizes, speed, amount).
+- Hero styles are the ".hx-*" block at the end of styles.css.
+- Petals pause when the hero is off-screen / tab hidden, and show a still frame
+  if the visitor has "reduce motion" enabled.

@@ -274,3 +274,90 @@
   nextShooter=performance.now()+1400;
   frame(reducedMotion?0:performance.now()); // one static frame under reduced motion, an animation loop otherwise
 })();
+
+
+/* Hero petals — three depth layers of falling pixel petals over the night-castle
+   render. Sharp little rectangles (no curves) that "flip" as they fall, to match
+   the voxel look. Far + mid layers draw under the scrim, the large soft near layer
+   draws over the content. */
+(() => {
+  const hero=document.querySelector('.hx-banner'); if(!hero)return;
+  const back=hero.querySelector('[data-petals="back"]');
+  const front=hero.querySelector('[data-petals="front"]');
+  if(!back||!front)return;
+  const ctxB=back.getContext('2d'), ctxF=front.getContext('2d');
+  const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const PALETTE=['#ffd0ec','#ff8fcf','#ff6fb8','#e85aa6','#c98bff'];
+  const rnd=(a,b)=>a+Math.random()*(b-a);
+  const pick=a=>a[(Math.random()*a.length)|0];
+
+  let w=0,h=0,dpr=1,petals=[],running=false,visible=true,last=0,raf=0;
+
+  // size = px, vy = fall speed px/s, count = [desktop, mobile]
+  const LAYERS=[
+    {name:'far', ctx:ctxB, count:[36,16], size:[2,4],   alpha:[.35,.6],  vy:[16,30],   blur:0},
+    {name:'mid', ctx:ctxB, count:[30,14], size:[6,10],  alpha:[.7,.95],  vy:[38,64],   blur:0},
+    {name:'near',ctx:ctxF, count:[6,3],   size:[11,18], alpha:[.45,.65], vy:[110,160], blur:12}
+  ];
+
+  function make(layer,scatter){
+    const s=rnd(layer.size[0],layer.size[1]);
+    return {
+      layer, s,
+      long:Math.random()<.45,                 // some petals are 1×2 voxels
+      x:rnd(-140,w), y:scatter?rnd(-40,h):rnd(-120,-20),
+      vy:rnd(layer.vy[0],layer.vy[1]),
+      wind:rnd(8,26)*(layer.name==='near'?1.8:1),
+      amp:rnd(10,38), freq:rnd(.6,1.5), phase:rnd(0,6.28),
+      flip:rnd(1.2,3.2), fphase:rnd(0,6.28),
+      color:pick(PALETTE), alpha:rnd(layer.alpha[0],layer.alpha[1])
+    };
+  }
+
+  function resize(){
+    const r=hero.getBoundingClientRect();
+    dpr=Math.min(devicePixelRatio||1,2);
+    w=Math.max(1,Math.round(r.width)); h=Math.max(1,Math.round(r.height));
+    [back,front].forEach(c=>{c.width=Math.round(w*dpr);c.height=Math.round(h*dpr)});
+    ctxB.setTransform(dpr,0,0,dpr,0,0); ctxF.setTransform(dpr,0,0,dpr,0,0);
+    const small=w<700?1:0;
+    petals=[];
+    LAYERS.forEach(l=>{for(let i=0;i<l.count[small];i++)petals.push(make(l,true))});
+  }
+
+  function draw(t){
+    ctxB.clearRect(0,0,w,h); ctxF.clearRect(0,0,w,h);
+    for(const p of petals){
+      const c=p.layer.ctx;
+      const pw=Math.max(1,Math.round(p.s*(.3+.7*Math.abs(Math.cos(t*p.flip+p.fphase)))*(p.long?1.9:1)));
+      const ph=Math.max(1,Math.round(p.s*(.55+.45*Math.abs(Math.sin(t*p.flip*.7+p.phase)))));
+      c.globalAlpha=p.alpha; c.fillStyle=p.color;
+      if(p.layer.blur){c.shadowColor=p.color;c.shadowBlur=p.layer.blur*dpr}
+      c.fillRect(Math.round(p.x),Math.round(p.y),pw,ph);
+      if(p.layer.blur)c.shadowBlur=0;
+    }
+    ctxB.globalAlpha=1; ctxF.globalAlpha=1;
+  }
+
+  function frame(now){
+    if(!running)return;
+    const dt=Math.min(.05,(now-last)/1000||0); last=now;
+    const t=now/1000;
+    for(const p of petals){
+      p.y+=p.vy*dt;
+      p.x+=(p.wind+Math.sin(t*p.freq+p.phase)*p.amp)*dt;
+      if(p.y>h+40||p.x>w+60){const n=make(p.layer,false);Object.assign(p,n)}
+    }
+    draw(t);
+    raf=requestAnimationFrame(frame);
+  }
+
+  function start(){if(running||reduced||!visible||document.hidden)return;running=true;last=performance.now();raf=requestAnimationFrame(frame)}
+  function stop(){running=false;cancelAnimationFrame(raf)}
+
+  new ResizeObserver(()=>{resize();draw(0)}).observe(hero);
+  resize(); draw(0);                      // under reduced motion this stays a single still frame
+  if('IntersectionObserver' in window)new IntersectionObserver(es=>{visible=es[0].isIntersecting;visible?start():stop()},{threshold:0}).observe(hero);
+  document.addEventListener('visibilitychange',()=>document.hidden?stop():start());
+  start();
+})();

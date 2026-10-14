@@ -761,3 +761,194 @@ main,.site-footer{z-index:3}
     font-weight:500;
   }
 }
+
+
+/* =====================================================================
+   v10.2 — Hero banner "night castle"
+   A short banner (like a store header) with the render blurred slightly,
+   three layers of falling pixel petals, and a long fade into the page
+   background. The stats sit below the banner on the normal page colour.
+   Everything is namespaced .hx-* so it can't collide with older rules.
+   ===================================================================== */
+:root{
+  --hx-h:clamp(500px,64vh,700px);   /* banner height */
+  --hx-cyan:#68e4ff;
+  --hx-pink:#ff7ac2;
+  --hx-night:#06131c;               /* same tone the rest of the page sits on */
+}
+.hx{position:relative;min-height:100vh;min-height:100svh;display:flex;flex-direction:column}
+.hx-banner{position:relative;isolation:isolate;overflow:hidden;height:var(--hx-h)}
+
+/* Backdrop stack: render → back petals → scrim (fade) */
+.hx-bg{position:absolute;inset:0;z-index:0;background:var(--hx-night);overflow:hidden}
+.hx-bg-img{
+  position:absolute;inset:-1%;width:102%;max-width:none;height:102%;
+  object-fit:cover;object-position:82% 40%;
+  filter:blur(2.5px) saturate(1.05);
+}
+.hx-scrim{
+  position:absolute;inset:0;z-index:2;pointer-events:none;
+  /* the fade is the TOP layer so the bottom edge is exactly the page colour, with no seam */
+  background:
+    linear-gradient(180deg,rgba(6,19,28,0) 36%,rgba(6,19,28,.4) 58%,rgba(6,19,28,.82) 80%,var(--hx-night) 100%),
+    linear-gradient(90deg,rgba(3,8,18,.74) 0%,rgba(3,8,18,.48) 26%,rgba(3,8,18,.1) 50%,rgba(3,8,18,0) 66%),
+    linear-gradient(180deg,rgba(3,8,18,.5) 0,rgba(3,8,18,0) 90px);
+}
+
+/* Petal canvases: "back" under the scrim, "front" (a few large soft petals) over the content */
+.hx-petals{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;display:block}
+.hx-petals-back{z-index:1}
+.hx-petals-front{z-index:4}
+
+/* Banner content: one text block, vertically centred under the header */
+.hx-inner{
+  position:relative;z-index:3;height:100%;
+  width:min(100%,var(--max));margin:0 auto;
+  padding:72px var(--pad) 36px;
+  display:flex;align-items:center;
+}
+.hx-main{width:100%}
+.hx-copy{max-width:700px}
+
+.hx h1{
+  margin:0;
+  font-family:'Plus Jakarta Sans','Manrope',sans-serif;font-weight:800;
+  text-transform:uppercase;
+  font-size:clamp(36px,4.7vw,72px);line-height:.97;letter-spacing:-.035em;
+  text-shadow:0 2px 5px rgba(2,6,16,.38),0 6px 26px rgba(2,6,16,.5);
+}
+.hx h1 span{display:block}
+.hx-w{color:#fff}
+.hx-c{color:var(--hx-cyan)}
+.hx-p{color:var(--hx-pink)}
+
+.hx-intro{
+  max-width:500px;margin:20px 0 0;
+  font-size:clamp(14px,1.2vw,16px);line-height:1.65;font-weight:600;color:#e3eef7;
+  text-shadow:0 1px 4px rgba(2,6,16,.45),0 2px 16px rgba(2,6,16,.75);
+}
+.hx-actions{display:flex;flex-wrap:wrap;gap:12px 32px;margin-top:24px}
+.hx-cta{
+  display:inline-flex;align-items:center;gap:8px;padding-bottom:7px;
+  font-size:12px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--hx-cyan);border-bottom:2px solid var(--hx-cyan);
+  text-shadow:0 1px 6px rgba(2,6,16,.5);
+  transition:color .2s ease,border-color .2s ease,gap .2s ease;
+}
+.hx-cta:hover{color:#fff;border-color:#fff;gap:12px}
+.hx-cta:focus-visible{outline:2px solid #fff;outline-offset:6px}
+.hx-cta-quiet{color:#cfe0ea;border-bottom-color:rgba(207,224,234,.35)}
+
+/* Stats: now a strip below the banner, on the normal page background */
+.hx-statsbar{flex:1;display:flex;align-items:center;padding-top:28px;padding-bottom:28px}
+.hx-statsbar .hero-stats{width:100%;max-width:none;border-top-color:rgba(255,255,255,.14)}
+.hx-statsbar .stat-item{border-right-color:rgba(255,255,255,.12)}
+.hx-statsbar .stat-item strong{color:#fff}
+.hx-statsbar .stat-item span{color:#8fb0bf}
+
+@media(max-width:900px){
+  :root{--hx-h:auto}
+  .hx-banner{height:auto;min-height:540px}
+  .hx-bg-img{object-position:72% 30%}
+  .hx-scrim{
+    background:
+      linear-gradient(180deg,rgba(3,8,18,.66) 0%,rgba(3,8,18,.4) 40%,rgba(3,8,18,.22) 62%,rgba(6,19,28,.85) 88%,var(--hx-night) 100%);
+  }
+  .hx-inner{height:auto;min-height:540px;padding-top:100px;padding-bottom:56px}
+}
+@media(max-width:700px){
+  .hx-banner{min-height:500px}
+  .hx-inner{min-height:500px;padding-top:92px;padding-bottom:48px}
+  .hx h1{font-size:clamp(34px,10.4vw,54px)}
+  .hx-intro{font-size:14px;margin-top:16px}
+  .hx-actions{margin-top:20px}
+}
+
+/* ---- About: characters replace the logo ---- */
+.hydra-logo-stage{isolation:isolate}
+.hydra-logo-stage::after{
+  content:"";position:absolute;inset:4% 2%;z-index:0;pointer-events:none;
+  background:radial-gradient(circle at 50% 55%,rgba(104,228,255,.16),rgba(155,107,255,.1) 42%,transparent 68%);
+}
+.about-characters{
+  position:relative;z-index:1;display:block;
+  width:min(100%,560px);height:auto;
+  filter:drop-shadow(0 26px 36px rgba(0,0,0,.5));
+  animation:floatRender 6s ease-in-out infinite;
+}
+@media(max-width:700px){.about-characters{width:min(94%,400px)}}
+@media(prefers-reduced-motion:reduce){.about-characters{animation:none}}
+
+
+/* ---- Header: on wide screens, keep logo/name and CTA a bit closer to the centre ---- */
+@media(min-width:1600px){
+  .site-header{
+    padding-left:max(58px,calc((100% - 1560px) / 2));
+    padding-right:max(58px,calc((100% - 1560px) / 2));
+  }
+}
+
+
+/* =====================================================================
+   v10.3 — Hero text lowered, crystal logo on the right,
+           new navigation typography and a redesigned header button
+   ===================================================================== */
+
+/* Lower the hero text block a little (≈ 45px) */
+.hx-inner{padding-top:150px;padding-bottom:20px;gap:clamp(24px,4vw,64px)}
+.hx-main{flex:1 1 56%;min-width:0}
+
+/* Crystal "HYDRA" logo, right side of the banner */
+.hx-logo{
+  flex:0 1 auto;width:clamp(300px,35vw,600px);margin-left:auto;
+  display:flex;justify-content:center;align-items:center;
+  pointer-events:none;
+}
+.hx-logo img{
+  display:block;width:100%;height:auto;
+  filter:drop-shadow(0 18px 34px rgba(0,0,0,.55)) drop-shadow(0 0 28px rgba(104,228,255,.22));
+  animation:hxLogoFloat 6.5s ease-in-out infinite;
+}
+@keyframes hxLogoFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@media(prefers-reduced-motion:reduce){.hx-logo img{animation:none}}
+@media(max-width:900px){
+  .hx-inner{flex-direction:column;align-items:flex-start;justify-content:center;padding-top:100px;padding-bottom:56px}
+  .hx-main{flex:none;width:100%}
+  .hx-logo{width:min(70%,300px);margin:8px 0 0}
+}
+
+/* Navigation typography: Space Grotesk */
+.site-header .brand-name,
+.main-nav a,
+.header-cta{font-family:'Space Grotesk','Manrope',system-ui,sans-serif}
+.site-header .brand-name{font-size:12px;font-weight:700;letter-spacing:.16em}
+.main-nav a{font-size:12.5px;font-weight:600;letter-spacing:.09em;color:#9bbdc9}
+.main-nav a:hover,.main-nav a.is-active{color:#fff}
+.main-nav a::after{height:2px;background:linear-gradient(90deg,var(--hx-cyan,#68e4ff),var(--hx-pink,#ff7ac2))}
+
+/* Header button: gradient border, glow, sliding arrow */
+.header-cta{
+  position:relative;isolation:isolate;gap:12px;padding:6px 6px 6px 18px;
+  border:0;border-radius:999px;
+  font-size:13px;font-weight:700;letter-spacing:.02em;color:#fff;
+  background:linear-gradient(#0a1f2b,#0a1f2b) padding-box,
+             linear-gradient(120deg,#68e4ff,#9b6bff 55%,#ff7ac2) border-box;
+  border:1.5px solid transparent;
+  box-shadow:0 0 0 0 rgba(104,228,255,0),0 6px 22px rgba(0,0,0,.28);
+  transition:box-shadow .25s ease,transform .25s ease,background .25s ease;
+}
+.header-cta-icon{
+  display:grid;place-items:center;width:30px;height:30px;border-radius:50%;
+  font-size:15px;line-height:1;color:#04141c;
+  background:linear-gradient(135deg,#68e4ff,#ff7ac2);
+  transition:transform .25s ease;
+}
+.header-cta:hover{
+  background:linear-gradient(#0e2a39,#0e2a39) padding-box,
+             linear-gradient(120deg,#68e4ff,#9b6bff 55%,#ff7ac2) border-box;
+  border-color:transparent;transform:translateY(-1px);
+  box-shadow:0 0 22px rgba(104,228,255,.32),0 8px 24px rgba(0,0,0,.32);
+}
+.header-cta:hover .header-cta-icon{transform:rotate(45deg)}
+.header-cta:focus-visible{outline:2px solid #fff;outline-offset:3px}
+@media(max-width:900px){.header-cta{display:none}}
